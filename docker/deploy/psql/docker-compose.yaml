@@ -1,0 +1,12 @@
+version: "3.6"
+
+services:
+  app.db:
+    image: ${DEV_DB_IMAGE}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${DEV_DB_NAME}
+    working_dir: ${DB_HOME}
+    volumes:
+      - ./.data/dev_${DEV_DB_NAME}_psql:/var/lib/postgresql/data

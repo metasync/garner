@@ -1,0 +1,14 @@
+version: "3.6"
+
+services:
+  app.db:
+    image: ${DEV_DB_IMAGE}
+    environment: 
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+      MSSQL_DATABASE: ${DEV_DB_NAME}
+    working_dir: ${DB_HOME}
+    volumes:
+      - ./.data/dev_${DEV_DB_NAME}_mssql:/var/opt/mssql
+      - ./mssql/scripts:${DB_HOME}
+  

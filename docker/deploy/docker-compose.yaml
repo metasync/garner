@@ -1,0 +1,20 @@
+version: "3.6"
+
+services:
+  # For development only
+  app:
+    depends_on:
+      - app.db
+    image: ${DEV_IMAGE}
+    env_file:
+      - env/cipher.env
+      - env/database.env
+      - env/secret.env
+    working_dir: ${APP_HOME}
+    volumes:
+      - ../../:${APP_HOME}
+      - ../../vendor/bundle:/usr/local/bundle
+      - ../../../garnet:/gems/garnet
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true

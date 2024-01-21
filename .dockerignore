@@ -1,0 +1,13 @@
+.bundle
+vendor
+**/out
+.yardoc
+_yardoc
+coverage
+doc
+pkg
+tmp
+log
+.git
+.DS_Store
+.bash_history
