@@ -14,6 +14,8 @@ module Garner
       setting :db_password, constructor: Types::String.constrained(filled: true)
       setting :database_url, constructor: Types::String.constrained(filled: true)
       setting :enable_sql_log, default: false, constructor: Types::Params::Bool.optional
+
+      setting :simulator_pool_size, default: 3, constructor: Types::Integer.constrained(filled: true)
     end
   end
 end

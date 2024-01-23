@@ -5,8 +5,8 @@ module Simulation
     class NextJobRunMessage < Garnet::Message
       include Deps['actions.run_job.contract']
 
-      from 'simulation.actors.simulator'
-      to 'simulation.actors.simulator'
+      from 'simulation.actors.simulator_pool'
+      to 'simulation.actors.simulator_pool'
       action 'run_job'
     end
   end

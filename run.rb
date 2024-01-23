@@ -33,7 +33,7 @@ puts
 # puts Garnet.services.inspect
 # puts Garnet.services["simulation"].providers.providers.keys.inspect
 
-Simulation::Service['actors.simulator'].request(
+Simulation::Service['actors.simulator_pool'].request(
   :start_jobs,
   jobs: [
     {
