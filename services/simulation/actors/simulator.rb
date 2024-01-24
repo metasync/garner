@@ -13,3 +13,12 @@ module Simulation
     end
   end
 end
+
+# module Simulation
+#   module Actors
+#     class Simulator < Ingestion::Actor
+#       include Deps['actions.start_jobs']
+#       include Deps['actions.run_job']
+#     end
+#   end
+# end
