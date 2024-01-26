@@ -4,7 +4,7 @@ module Ingestion
   module Actors
     class Collector < Ingestion::Actor
       include Deps['actions.hello']
-      include Deps['actions.fetch_logs']
+      include Deps['actions.fetch_job_logs']
     end
   end
 end

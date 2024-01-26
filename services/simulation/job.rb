@@ -16,9 +16,11 @@ module Simulation
     option :batches, default: proc { 0 }
 
     def run
-      render_job_log.tap do |job_log|
-        render_step_logs(job_log)
-        @batches += 1
+      @batches += 1
+      Array.new(batch_size, 0).map do |_|
+        render_job_log.tap do |job_log|
+          render_step_logs(job_log)
+        end
       end
     end
 

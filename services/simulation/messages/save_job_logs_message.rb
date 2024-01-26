@@ -2,12 +2,12 @@
 
 module Simulation
   module Messages
-    class SaveJobLogMessage < Garnet::Message
-      include Inventory::Deps['actions.create_job_log.contract']
+    class SaveJobLogsMessage < Garnet::Message
+      include Inventory::Deps['actions.create_job_logs.contract']
 
       from 'simulation.actors.simulator'
       to 'inventory.actors.controller'
-      action 'create_job_log'
+      action 'create_job_logs'
     end
   end
 end

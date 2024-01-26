@@ -4,7 +4,7 @@ module Simulation
   module Actions
     class RunJob < Simulation::Action
       include Deps['actions.run_job.contract']
-      include Deps['messages.save_job_log_message']
+      include Deps['messages.save_job_logs_message']
       include Deps['messages.next_job_run_message']
       include Garnet::Utils::PrettyPrint
 
@@ -12,9 +12,9 @@ module Simulation
 
       def handle(params)
         job = params[:job]
-        job_log = job.run
-        logger.debug "Rendered job log for #{job.name}:\n#{pretty_inspect(job_log)}"
-        save_job_log_message.deliver!(job_log:).fmap do |_r|
+        job_logs = job.run
+        logger.info "Rendered #{job_logs.size} job logs for #{job.name}"
+        save_job_logs_message.deliver!(job_logs:).fmap do |_r|
           if job.max_batches_reached?
             logger.info "Completed simulation for #{job.name}"
           else

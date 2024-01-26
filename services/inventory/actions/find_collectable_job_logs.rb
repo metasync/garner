@@ -9,7 +9,7 @@ module Inventory
       protected
 
       def handle(params) =
-        find_collectable_job_logs.call(limit: params[:limit])
+        find_collectable_job_logs.call(**params)
     end
   end
 end
