@@ -3,7 +3,7 @@
 module Ingestion
   module Operations
     class SayHello < Ingestion::Operation
-      def call(message)
+      def call(message:)
         logger.info "hello: #{message}"
       end
     end

@@ -9,7 +9,7 @@ module Ingestion
       protected
 
       def handle(params)
-        say_hello.call(params[:message])
+        say_hello.call(**params)
       end
     end
   end

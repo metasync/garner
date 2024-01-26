@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+# require 'async'
 require 'garnet'
 require_relative 'app'
 
@@ -66,7 +67,9 @@ Simulation::Service['actors.simulator'].request(
   ]
 )
 
-sleep 10
+# Ingestion::Service['actors.collector'].request(:fetch_logs)
+
+sleep 20
 puts
 
 Garnet.shutdown
