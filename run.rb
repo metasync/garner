@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-# require 'async'
+require 'async'
 require 'garnet'
 require_relative 'app'
 
@@ -67,9 +67,11 @@ Simulation::Service['actors.simulator'].request(
   ]
 )
 
-# Ingestion::Service['actors.collector'].request(:fetch_logs)
-
 sleep 20
+
 puts
+Ingestion::Service['actors.collector'].request(:fetch_job_logs)
+
+sleep 1
 
 Garnet.shutdown

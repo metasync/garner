@@ -5,7 +5,7 @@ module Inventory
     class FindCollectableJobLogs
       class Contract < Garnet::Contract
         schema do
-          required(:limit).array(:integer)
+          required(:limit).filled(:integer)
         end
       end
     end

@@ -7,7 +7,8 @@ module Ingestion
 
       from 'ingestion.actors.collector'
       to 'inventory.actors.controller'
-      action 'find_collectable_job_logs'
+      action :find_collectable_job_logs
+      callback :on_job_logs_fetched
     end
   end
 end

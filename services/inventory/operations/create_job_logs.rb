@@ -4,9 +4,11 @@ module Inventory
   module Operations
     class CreateJobLogs < Inventory::Operation
       def call(logs)
-        job_logs.transaction do
-          logs.each do |job_log|
-            job_logs.create(new_job_log(job_log))
+        Sync do
+          job_logs.transaction do
+            logs.each do |job_log|
+              job_logs.create(new_job_log(job_log))
+            end
           end
         end
       end

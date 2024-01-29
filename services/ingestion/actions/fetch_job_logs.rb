@@ -8,8 +8,7 @@ module Ingestion
       protected
 
       def handle(_params)
-        job_logs = find_collectable_job_logs_message.deliver!(fetch_size: settings.fetch_size)
-        logger.info "Fetched job logs: #{job_logs.inspect}"
+        find_collectable_job_logs_message.deliver!(limit: settings.fetch_size)
       end
     end
   end

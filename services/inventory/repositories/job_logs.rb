@@ -14,7 +14,7 @@ module Inventory
           .where(collected: false)
           .exclude(ended_at: nil)
           .order { started_at.asc }
-          .limit(limit:)
+          .limit(limit)
           .to_a
 
       def find_by_ids(job_ids) =

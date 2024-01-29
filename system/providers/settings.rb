@@ -16,6 +16,7 @@ module Garner
       setting :enable_sql_log, default: false, constructor: Types::Params::Bool.optional
 
       setting :simulator_pool_size, default: 3, constructor: Types::Integer.constrained(filled: true)
+      setting :collector_pool_size, default: 2, constructor: Types::Integer.constrained(filled: true)
     end
   end
 end

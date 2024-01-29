@@ -9,4 +9,3 @@ module Garner
     include Deps[:inflector]
   end
 end
-
