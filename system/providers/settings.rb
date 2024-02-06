@@ -17,6 +17,7 @@ module Garner
 
       setting :simulator_pool_size, default: 3, constructor: Types::Integer.constrained(filled: true)
       setting :collector_pool_size, default: 2, constructor: Types::Integer.constrained(filled: true)
+      setting :elastic_agent_pool_size, default: 4, constructor: Types::Integer.constrained(filled: true)
     end
   end
 end

@@ -2,7 +2,7 @@
 
 # auto_register: false
 
-module Store
-  class Actor < Garner::Actor
+module Elastic
+  class Action < Garner::Action
   end
 end

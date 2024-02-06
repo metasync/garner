@@ -20,6 +20,9 @@ module Inventory
       def find_by_ids(job_ids) =
         base_query.where(id: job_ids).to_a
 
+      def update_as_collected(job_ids) =
+        job_logs.where(id: job_ids).command(:update).call(collected: true)
+
       protected
 
       def base_query = job_logs.combine(:job_step_logs)

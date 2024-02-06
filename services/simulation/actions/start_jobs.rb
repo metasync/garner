@@ -3,18 +3,18 @@
 module Simulation
   module Actions
     class StartJobs < Simulation::Action
-      include Deps['actions.start_jobs.contract']
+      include Deps['jobs']
       include Deps['messages.next_job_run_message']
 
       protected
 
-      def handle(params)
-        params[:jobs].each do |job|
-          next_job_run_message.deliver!(
-            job: Simulation::Job.new(**job)
-          )
-          logger.info "Scheduled job #{job[:name]}"
-        end
+      def handle(_params)
+        jobs.each { |job| start_job(job) }
+      end
+
+      def start_job(job)
+        next_job_run_message.deliver!(job:)
+        logger.info "Scheduled simulation job #{job.name}"
       end
     end
   end

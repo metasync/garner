@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-module Ingestion
+module Inventory
   module Actions
-    class Hello
+    class UpdateJobLogsAsCollected
       class Contract < Garnet::Contract
         schema do
-          required(:message).value(:string)
+          required(:slice).filled(:string)
+          required(:job_logs).filled(:array)
         end
       end
     end

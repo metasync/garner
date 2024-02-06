@@ -2,13 +2,13 @@
 
 module Ingestion
   module Messages
-    class FindCollectableJobLogsMessage < Garnet::Message
+    class FetchJobLogsMessage < Garnet::Message
       include Inventory::Deps['actions.find_collectable_job_logs.contract']
 
       from 'ingestion.actors.collector'
       to 'inventory.actors.controller'
       action :find_collectable_job_logs
-      callback :on_job_logs_fetched
+      callback :submit_job_logs
     end
   end
 end

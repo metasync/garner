@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Store
+module Elastic
   class Service < Garnet::Service
   end
 end

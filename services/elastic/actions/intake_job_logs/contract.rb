@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-module Store
+module Elastic
   module Actions
-    class CheckIn
+    class IntakeJobLogs
       class Contract < Garnet::Contract
         schema do
-          required(:items).array(:integer)
+          required(:slice).filled(:string)
+          required(:job_logs).filled(:array)
         end
       end
     end
