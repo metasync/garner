@@ -12,20 +12,32 @@ module Ingestion
       def handle(params)
         params[:result].fmap do |job_logs|
           if job_logs.empty?
-            logger.info "[Batch##{job.batch_name} Fetched no job logs"
-            sleep job.batch_wait
-            schedule_next_batch
+            handle_job_logs_fetch_complete
           else
-            logger.info "[Batch##{job.batch_name}] Fetched #{job_logs.size} job logs"
-            submit_job_logs(job_logs)
+            handle_job_logs_fetched(job_logs)
           end
-        end.or do |e|
-          logger.info "[Batch##{job.batch_name}] Failed to fetch job logs: #{pretty_exception(e)}"
-          sleep job.batch_wait
-          schedule_next_batch
+        end.or do |error|
+          handle_job_logs_fetch_failure(error)
         end
       end
       # rubocop:enable Style/MultilineBlockChain
+
+      def handle_job_logs_fetch_complete
+        logger.info "[Batch##{job.batch_name} Fetched no job logs"
+        sleep job.batch_wait
+        schedule_next_batch
+      end
+
+      def handle_job_logs_fetched(job_logs)
+        logger.info "[Batch##{job.batch_name}] Fetched #{job_logs.size} job logs"
+        submit_job_logs(job_logs)
+      end
+
+      def handle_job_logs_fetch_failure(error)
+        logger.info "[Batch##{job.batch_name}] Failed to fetch job logs: #{pretty_exception(error)}"
+        sleep job.batch_wait
+        schedule_next_batch
+      end
 
       def submit_job_logs(job_logs)
         slices = job_logs.each_slice(job.slice_size).to_a
