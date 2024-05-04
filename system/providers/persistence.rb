@@ -5,6 +5,7 @@ module Garner
     # config.name = target['settings'].db_name
     config.db_user = target['settings'].db_user
     config.db_password = target['settings'].db_password
+    config.db_password_encrypted = target['settings'].db_password_encrypted
     config.database_url = target['settings'].database_url
     config.enable_sql_log = target['settings'].enable_sql_log
   end
