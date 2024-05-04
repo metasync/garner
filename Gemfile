@@ -12,7 +12,7 @@ gem 'garnet', path: '/gems/garnet'
 gem 'pg', '~> 1.5'
 gem 'tiny_tds', '~> 2.1'
 
-gem 'async', '~> 2.8'
+gem 'async', '~> 2.10'
 
 group :development do
   gem 'rubocop', '~> 1.60'

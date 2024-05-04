@@ -1,8 +1,8 @@
 PATH
   remote: /gems/garnet
   specs:
-    garnet (0.1.0)
-      dotenv (~> 2.8)
+    garnet (0.1.1)
+      dotenv (~> 3.1)
       dry-logger (~> 1.0)
       dry-monads (~> 1.6)
       dry-system (~> 1.0)
@@ -16,17 +16,18 @@ GEM
   remote: http://rubygems.org/
   specs:
     ast (2.4.2)
-    async (2.8.0)
+    async (2.10.2)
       console (~> 1.10)
       fiber-annotation
-      io-event (~> 1.1)
+      io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
-    bigdecimal (3.1.5)
-    concurrent-ruby (1.2.2)
-    console (1.23.3)
+    bigdecimal (3.1.7)
+    concurrent-ruby (1.2.3)
+    console (1.25.1)
       fiber-annotation
-      fiber-local
-    dotenv (2.8.1)
+      fiber-local (~> 1.1)
+      json
+    dotenv (3.1.1)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
@@ -79,16 +80,18 @@ GEM
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
     fiber-annotation (0.2.0)
-    fiber-local (1.0.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (0.1.0)
     ice_nine (0.11.2)
-    io-event (1.4.1)
-    json (2.7.1)
+    io-event (1.5.1)
+    json (2.7.2)
     language_server-protocol (3.17.0.3)
     parallel (1.24.0)
-    parser (3.3.0.4)
+    parser (3.3.1.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
+    pg (1.5.6)
     racc (1.7.3)
     rainbow (3.1.1)
     regexp_parser (2.9.0)
@@ -101,7 +104,7 @@ GEM
       dry-core (~> 1.0)
       rom-core (~> 5.3)
       transproc (~> 1.0, >= 1.1.0)
-    rom-core (5.3.0)
+    rom-core (5.3.1)
       concurrent-ruby (~> 1.1)
       dry-configurable (~> 1.0)
       dry-core (~> 1.0)
@@ -119,7 +122,7 @@ GEM
       dry-types (~> 1.0)
       rom (~> 5.2, >= 5.2.1)
       sequel (>= 4.49)
-    rubocop (1.60.1)
+    rubocop (1.63.4)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -127,26 +130,26 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.30.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.30.0)
-      parser (>= 3.2.1.0)
+    rubocop-ast (1.31.3)
+      parser (>= 3.3.1.0)
     ruby-progressbar (1.13.0)
-    sequel (5.76.0)
+    sequel (5.80.0)
       bigdecimal
     timers (4.3.5)
     tiny_tds (2.1.7)
     transproc (1.1.1)
     ulid (1.4.0)
     unicode-display_width (2.5.0)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   aarch64-linux-musl
 
 DEPENDENCIES
-  async (~> 2.8)
+  async (~> 2.10)
   garnet!
   pg (~> 1.5)
   rubocop (~> 1.60)
