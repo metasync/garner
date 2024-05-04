@@ -5,7 +5,7 @@ module Ingestion
     class CompleteSlice < Ingestion::Action
       protected
 
-      # rubocop:disable Style/MultilineBlockChain
+      # rubocop:disable Style/MultilineBlockChain, Metrics/AbcSize
       def handle(params)
         slice = params[:request][:data][:slice]
         job_logs = params[:request][:data][:job_logs]
@@ -17,7 +17,7 @@ module Ingestion
         job.processed[slice] = job_logs
         schedule_next_batch if job.batch_completed?
       end
-      # rubocop:enable Style/MultilineBlockChain
+      # rubocop:enable Style/MultilineBlockChain, Metrics/AbcSize
     end
   end
 end

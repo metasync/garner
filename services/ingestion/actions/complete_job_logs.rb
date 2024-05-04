@@ -7,7 +7,7 @@ module Ingestion
 
       protected
 
-      # rubocop:disable Style/MultilineBlockChain
+      # rubocop:disable Style/MultilineBlockChain, Metrics/AbcSize
       def handle(params)
         slice = params[:request][:data][:slice]
         job_logs = params[:request][:data][:job_logs]
@@ -19,7 +19,7 @@ module Ingestion
           fail_job_logs_submission(slice, job_logs)
         end
       end
-      # rubocop:enable Style/MultilineBlockChain
+      # rubocop:enable Style/MultilineBlockChain, Metrics/AbcSize
 
       def succeed_job_logs_submission(slice, job_logs)
         job_logs.each do |job_log|

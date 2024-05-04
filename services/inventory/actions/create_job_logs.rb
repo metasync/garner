@@ -8,8 +8,9 @@ module Inventory
 
       protected
 
-      def handle(params) =
+      def handle(params)
         create_job_logs.call(params[:job_logs])
+      end
     end
   end
 end

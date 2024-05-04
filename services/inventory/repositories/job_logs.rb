@@ -9,19 +9,22 @@ module Inventory
         base_query.command(:create).call(job_log)
       end
 
-      def find_collectable(limit:) =
+      def find_collectable(limit:)
         job_logs
           .where(collected: false)
           .exclude(ended_at: nil)
           .order { started_at.asc }
           .limit(limit)
           .to_a
+      end
 
-      def find_by_ids(job_ids) =
+      def find_by_ids(job_ids)
         base_query.where(id: job_ids).to_a
+      end
 
-      def update_as_collected(job_ids) =
+      def update_as_collected(job_ids)
         job_logs.where(id: job_ids).command(:update).call(collected: true)
+      end
 
       protected
 

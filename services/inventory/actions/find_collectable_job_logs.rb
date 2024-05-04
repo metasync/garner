@@ -8,8 +8,9 @@ module Inventory
 
       protected
 
-      def handle(params) =
+      def handle(params)
         find_collectable_job_logs.call(**params)
+      end
     end
   end
 end
